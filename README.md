@@ -2,7 +2,9 @@
 
 Go to https://tinytapeout.com for instructions!
 
-# 8-bit Shiftregister in Wokwi: [Wokwi project](https://github.com/ThorKn/tinytapeout_shiftregister_8bit)
+# 8-bit Shiftregister in Wokwi: 
+
+See the Wokwi design here: [Wokwi project](https://github.com/ThorKn/tinytapeout_shiftregister_8bit)
 
 # How to change the Wokwi project
 
