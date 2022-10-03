@@ -1,37 +1,58 @@
 ![](../../workflows/wokwi/badge.svg)
 
-Go to https://tinytapeout.com for instructions!
+# Shiftregister 8 Bit
 
-# 8-bit Shiftregister in Wokwi: 
+## TinyTapeout
 
-See the Wokwi design here: [Wokwi project](https://github.com/ThorKn/tinytapeout_shiftregister_8bit)
+This repository contains a mikrochip design done for TinyTapeout.
+Go to https://tinytapeout.com for more informations.
 
-# How to change the Wokwi project
+The design is included on the SKY130 shuttlerun MPW-7 with the TinyTapeout project:
+https://github.com/mattvenn/tinytapeout-mpw7
+https://platform.efabless.com/projects/shuttle_11
 
-Edit the [Makefile](Makefile) and change the WOKWI_PROJECT_ID to match your project.
+## Wokwi project
 
-# What is this about?
+https://wokwi.com/projects/341506274933867090
 
-This repo is a template you can make a copy of for your own [ASIC](https://www.zerotoasiccourse.com/terminology/asic/) design using [Wokwi](https://wokwi.com/).
+## Information about the design
 
-When you edit the Makefile to choose a different ID, the [GitHub Action](.github/workflows/wokwi.yaml) will fetch the digital netlist of your design from Wokwi.
+author:       "Thorsten Knoll"
 
-The design gets wrapped in some extra logic that builds a 'scan chain'. This is a way to put lots of designs onto one chip and still have access to them all. You can see [all of the technical details here](https://github.com/mattvenn/scan_wrapper).
+title:        "Shiftregister 8 Bit"
 
-After that, the action uses the open source ASIC tool called [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/) to build the files needed to fabricate an ASIC.
+description:  "A simple shiftregister with 8 bit depth, made from D-FlipFlops. Programmable with data and clk, reset. All 8 bits will be mapped to the output."
 
-# What files get made?
+how_it_works: "Programm the shiftregister with the data (IN0) and clk (IN1) inputs. With reset enabled, the FlipFlops will be cleared with the next rising edge on the clk. The outputs (OUT0 - OUT7) are driven by the shiftregister bits."
 
-When the action is complete, you can [click here](https://github.com/mattvenn/wokwi-verilog-gds-test/actions) to see the latest build of your design. You need to download the zip file and take a look at the contents:
+how_to_test:  "Each rising edge at the clk input pushs a new data bit into the reǵister. Reset happens with the next clk. See the complete state of the register at the 8 outputs."
 
-* gds_render.svg - picture of your ASIC design
-* gds.html - zoomable picture of your ASIC design
-* runs/wokwi/reports/final_summary_report.csv  - CSV file with lots of details about the design
-* runs/wokwi/reports/synthesis/1-synthesis.stat.rpt.strategy4 - list of the [standard cells](https://www.zerotoasiccourse.com/terminology/standardcell/) used by your design
-* runs/wokwi/results/final/gds/user_module.gds - the final [GDS](https://www.zerotoasiccourse.com/terminology/gds2/) file needed to make your design
+external_hw:  "A dipswitch and two button for the inputs. 8 LEDs connected to the outputs."
 
-# What next?
+language:     "wokwi"
 
-* Share your GDS on twitter, tag it #tinytapeout and [link me](https://twitter.com/matthewvenn)!
-* [Submit it to be made](https://docs.google.com/forms/d/e/1FAIpQLSc3ZF0AHKD3LoZRSmKX5byl-0AzrSK8ADeh0DtkZQX0bbr16w/viewform?usp=sf_link)
-* [Join the community](https://discord.gg/rPK2nSjxy8)
+wokwi_id:     341506274933867090
+
+picture:      
+<img src=shiftregister.png>
+<img src=shiftregister_gds_render.png>
+
+inputs:         
+  - clock
+  - reset
+  - none
+  - none
+  - none
+  - none
+  - none
+  - none
+
+outputs:
+  - segment a
+  - segment b
+  - segment c
+  - segment d
+  - segment e
+  - segment f
+  - segment g
+  - none
